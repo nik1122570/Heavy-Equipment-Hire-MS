@@ -1,0 +1,382 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Heavy Equipment Hire</b></span>\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Workflow</b></span>\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
+ "creation": "2026-06-17 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "tool",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Heavy Equipment Hire",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment Machine",
+   "link_count": 0,
+   "link_to": "Equipment Machine",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Insurance Policy",
+   "link_count": 0,
+   "link_to": "Insurance Policy",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pre-Sales",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Equipment Machine, Customer, Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hire Quotation Simulation",
+   "link_count": 0,
+   "link_to": "Hire Quotation Simulation",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Hire Quotation Simulation, Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hire Commercial Adjustment",
+   "link_count": 0,
+   "link_to": "Hire Commercial Adjustment",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Customer, Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quotation",
+   "link_count": 0,
+   "link_to": "Quotation",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Operations",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Customer, Item, Equipment Machine",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Order",
+   "link_count": 0,
+   "link_to": "Sales Order",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Equipment Machine",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment Availability Calendar",
+   "link_count": 0,
+   "link_to": "equipment-availability-calendar",
+   "link_type": "Page",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Billing",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Sales Order",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Invoice",
+   "link_count": 0,
+   "link_to": "Sales Invoice",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Equipment Machine, Sales Order",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machine Availability Calendar",
+   "link_count": 0,
+   "link_to": "Machine Availability Calendar",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Hire Quotation Simulation, Hire Commercial Adjustment",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Revised Hire Profitability",
+   "link_count": 0,
+   "link_to": "Revised Hire Profitability",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Equipment Machine, Sales Order",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hire Machine Utilization",
+   "link_count": 0,
+   "link_to": "Hire Machine Utilization",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Equipment Machine, Sales Order",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machine Utilization Report",
+   "link_count": 0,
+   "link_to": "Machine Utilization Report",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Customer, Equipment Machine, Sales Order",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer Statement By Machine Project",
+   "link_count": 0,
+   "link_to": "Customer Statement By Machine Project",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Equipment Machine, Insurance Policy",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Insurance Report",
+   "link_count": 0,
+   "link_to": "Insurance Report",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer",
+   "link_count": 0,
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project",
+   "link_count": 0,
+   "link_to": "Project",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cost Center",
+   "link_count": 0,
+   "link_to": "Cost Center",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Terms and Conditions",
+   "link_count": 0,
+   "link_to": "Terms and Conditions",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Heavy Equipment Hire",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Sales User"
+  }
+ ],
+ "sequence_id": 25.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Equipment Machine",
+   "link_to": "Equipment Machine",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Hire Quotation Simulation",
+   "link_to": "Hire Quotation Simulation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Hire Commercial Adjustment",
+   "link_to": "Hire Commercial Adjustment",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Quotation",
+   "link_to": "Quotation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Equipment Availability Calendar",
+   "link_to": "equipment-availability-calendar",
+   "stats_filter": "[]",
+   "type": "Page"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "Report",
+   "format": "{}",
+   "label": "Machine Availability Calendar",
+   "link_to": "Machine Availability Calendar",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Red",
+   "doc_view": "Report",
+   "format": "{}",
+   "label": "Hire Machine Utilization",
+   "link_to": "Hire Machine Utilization",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Report",
+   "format": "{}",
+   "label": "Insurance Report",
+   "link_to": "Insurance Report",
+   "stats_filter": "[]",
+   "type": "Report"
+  }
+ ],
+ "title": "Heavy Equipment Hire"
+}

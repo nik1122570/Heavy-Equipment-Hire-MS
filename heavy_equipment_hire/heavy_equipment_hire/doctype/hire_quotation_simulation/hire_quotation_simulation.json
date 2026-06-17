@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "HQS-.YYYY.-.####",
+ "creation": "2026-06-16 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "project",
+  "column_break_ebfh",
+  "company",
+  "quotation",
+  "notes_section",
+  "internal_notes",
+  "amended_from",
+  "tender_costs_and_revenue_tab",
+  "equipment_section",
+  "machine",
+  "cost_center",
+  "column_break_1",
+  "from_date",
+  "to_date",
+  "costs_to_incur_section",
+  "additional_costs",
+  "expected_revenue_section",
+  "charges",
+  "profitability_analysis_tab",
+  "profitability_analysis_section",
+  "profitability_dashboard",
+  "total_expected_revenue",
+  "total_expected_cost",
+  "expected_profit",
+  "profit_margin_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Quotation",
+   "options": "Quotation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "equipment_section",
+   "fieldtype": "Section Break",
+   "label": "Equipment Details"
+  },
+  {
+   "fieldname": "machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fetch_from": "machine.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_revenue_section",
+   "fieldtype": "Section Break",
+   "label": "Expected Revenue"
+  },
+  {
+   "fieldname": "costs_to_incur_section",
+   "fieldtype": "Section Break",
+   "label": "Costs to Incur"
+  },
+  {
+   "fieldname": "additional_costs",
+   "fieldtype": "Table",
+   "label": "Tender Costs",
+   "options": "Hire Simulation Cost"
+  },
+  {
+   "fieldname": "profitability_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "Profitability Analysis"
+  },
+  {
+   "fieldname": "profitability_dashboard",
+   "fieldtype": "HTML",
+   "label": "Profitability Dashboard"
+  },
+  {
+   "fieldname": "total_expected_revenue",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Expected Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_expected_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Expected Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expected_profit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Expected Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "profit_margin_percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Profit Margin %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Small Text",
+   "label": "Internal Notes"
+  },
+  {
+   "fieldname": "column_break_ebfh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Hire Quotation Simulation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tender_costs_and_revenue_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tender Costs and Revenue"
+  },
+  {
+   "fieldname": "profitability_analysis_tab",
+   "fieldtype": "Tab Break",
+   "label": "Profitability Analysis"
+  },
+  {
+   "fieldname": "charges",
+   "fieldtype": "Table",
+   "label": "Charges ",
+   "options": "Hire Simulation Revenue"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-16 20:45:36.968283",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Hire Quotation Simulation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Stock User",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "customer,project,machine,quotation",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

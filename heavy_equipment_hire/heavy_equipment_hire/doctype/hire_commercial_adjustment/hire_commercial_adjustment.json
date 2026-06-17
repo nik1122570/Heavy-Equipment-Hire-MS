@@ -1,0 +1,287 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "HCA-.YYYY.-.####",
+ "creation": "2026-06-17 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hire_quotation_simulation",
+  "sales_order",
+  "adjustment_date",
+  "column_break_main",
+  "company",
+  "customer",
+  "project",
+  "machine",
+  "cost_center",
+  "reason_section",
+  "reason",
+  "adjustment_details_tab",
+  "extra_costs_section",
+  "additional_costs",
+  "back_charges_section",
+  "back_charges",
+  "profitability_tab",
+  "profitability_dashboard",
+  "original_section",
+  "original_expected_revenue",
+  "original_expected_cost",
+  "original_expected_profit",
+  "original_margin_percentage",
+  "adjustment_section",
+  "additional_revenue",
+  "additional_cost",
+  "net_adjustment",
+  "revised_section",
+  "revised_revenue",
+  "revised_cost",
+  "revised_profit",
+  "revised_margin_percentage",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "hire_quotation_simulation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hire Quotation Simulation",
+   "options": "Hire Quotation Simulation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "default": "Today",
+   "fieldname": "adjustment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Adjustment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1
+  },
+  {
+   "fieldname": "machine",
+   "fieldtype": "Link",
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason_section",
+   "fieldtype": "Section Break",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason / Site Note"
+  },
+  {
+   "fieldname": "adjustment_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Adjustment Details"
+  },
+  {
+   "fieldname": "extra_costs_section",
+   "fieldtype": "Section Break",
+   "label": "Extra Costs"
+  },
+  {
+   "fieldname": "additional_costs",
+   "fieldtype": "Table",
+   "label": "Additional Costs",
+   "options": "Hire Adjustment Cost"
+  },
+  {
+   "fieldname": "back_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Back Charges"
+  },
+  {
+   "fieldname": "back_charges",
+   "fieldtype": "Table",
+   "label": "Back Charges",
+   "options": "Hire Adjustment Charge"
+  },
+  {
+   "fieldname": "profitability_tab",
+   "fieldtype": "Tab Break",
+   "label": "Revised Profitability"
+  },
+  {
+   "fieldname": "profitability_dashboard",
+   "fieldtype": "HTML",
+   "label": "Profitability Dashboard"
+  },
+  {
+   "fieldname": "original_section",
+   "fieldtype": "Section Break",
+   "label": "Original Simulation"
+  },
+  {
+   "fieldname": "original_expected_revenue",
+   "fieldtype": "Currency",
+   "label": "Original Expected Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_expected_cost",
+   "fieldtype": "Currency",
+   "label": "Original Expected Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_expected_profit",
+   "fieldtype": "Currency",
+   "label": "Original Expected Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_margin_percentage",
+   "fieldtype": "Percent",
+   "label": "Original Margin %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "adjustment_section",
+   "fieldtype": "Section Break",
+   "label": "Adjustment"
+  },
+  {
+   "fieldname": "additional_revenue",
+   "fieldtype": "Currency",
+   "label": "Additional Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "additional_cost",
+   "fieldtype": "Currency",
+   "label": "Additional Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_adjustment",
+   "fieldtype": "Currency",
+   "label": "Net Adjustment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revised_section",
+   "fieldtype": "Section Break",
+   "label": "Revised Position"
+  },
+  {
+   "fieldname": "revised_revenue",
+   "fieldtype": "Currency",
+   "label": "Revised Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revised_cost",
+   "fieldtype": "Currency",
+   "label": "Revised Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revised_profit",
+   "fieldtype": "Currency",
+   "label": "Revised Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revised_margin_percentage",
+   "fieldtype": "Percent",
+   "label": "Revised Margin %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Hire Commercial Adjustment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-17 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Hire Commercial Adjustment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Sales User",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "hire_quotation_simulation,sales_order,customer,project,machine",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

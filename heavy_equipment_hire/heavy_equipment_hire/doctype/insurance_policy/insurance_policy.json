@@ -1,0 +1,130 @@
+{
+    "actions":  [
+
+                ],
+    "allow_rename":  1,
+    "autoname":  "field:policy_number",
+    "creation":  "2026-06-15 00:00:00.000000",
+    "doctype":  "DocType",
+    "engine":  "InnoDB",
+    "field_order":  [
+                        "policy_number",
+                        "machine",
+                        "provider",
+                        "status",
+                        "column_break_1",
+                        "start_date",
+                        "expiry_date",
+                        "insured_value",
+                        "premium_amount",
+                        "remarks"
+                    ],
+    "fields":  [
+                   {
+                       "label":  "Policy Number",
+                       "fieldname":  "policy_number",
+                       "fieldtype":  "Data",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "label":  "Machine",
+                       "fieldname":  "machine",
+                       "fieldtype":  "Link",
+                       "options":  "Equipment Machine",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "label":  "Provider",
+                       "fieldname":  "provider",
+                       "fieldtype":  "Data",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "label":  "Status",
+                       "fieldname":  "status",
+                       "fieldtype":  "Select",
+                       "options":  "Draft\nActive\nExpiring Soon\nExpired\nCancelled",
+                       "read_only":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldtype":  "Column Break",
+                       "fieldname":  "column_break_1"
+                   },
+                   {
+                       "label":  "Start Date",
+                       "fieldname":  "start_date",
+                       "fieldtype":  "Date",
+                       "reqd":  1
+                   },
+                   {
+                       "label":  "Expiry Date",
+                       "fieldname":  "expiry_date",
+                       "fieldtype":  "Date",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "label":  "Insured Value",
+                       "fieldname":  "insured_value",
+                       "fieldtype":  "Currency"
+                   },
+                   {
+                       "label":  "Premium Amount",
+                       "fieldname":  "premium_amount",
+                       "fieldtype":  "Currency"
+                   },
+                   {
+                       "label":  "Remarks",
+                       "fieldname":  "remarks",
+                       "fieldtype":  "Small Text"
+                   }
+               ],
+    "index_web_pages_for_search":  1,
+    "istable":  0,
+    "is_submittable":  1,
+    "links":  [
+
+              ],
+    "modified":  "2026-06-15 00:00:00.000000",
+    "modified_by":  "Administrator",
+    "module":  "Heavy Equipment Hire",
+    "name":  "Insurance Policy",
+    "owner":  "Administrator",
+    "permissions":  [
+                        {
+                            "role":  "System Manager",
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  1,
+                            "submit":  1,
+                            "cancel":  1,
+                            "amend":  1
+                        },
+                        {
+                            "role":  "Accounts User",
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Stock User",
+                            "read":  1,
+                            "write":  1,
+                            "create":  1
+                        }
+                    ],
+    "sort_field":  "modified",
+    "sort_order":  "DESC",
+    "states":  [
+
+               ],
+    "title_field":  "policy_number",
+    "search_fields":  "policy_number,machine,provider"
+}

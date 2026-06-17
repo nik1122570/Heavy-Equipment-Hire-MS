@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:registration_no",
+ "creation": "2026-06-15 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "machine_name",
+  "machine_type",
+  "status",
+  "column_break_1",
+  "registration_no",
+  "serial_no",
+  "chassis_no",
+  "current_location",
+  "company",
+  "cost_center",
+  "machine_decsription_section",
+  "machine_description",
+  "billing_defaults_section",
+  "default_billing_method",
+  "default_block_size_hours",
+  "default_block_rate",
+  "column_break_2",
+  "daily_rate",
+  "monthly_rate",
+  "insurance_section",
+  "insurance_policy",
+  "insurance_expiry_date",
+  "insurance_status",
+  "insurance_status_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Machine Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Machine Type",
+   "options": "\nExcavator\nBulldozer\nGrader\nLoader\nCrane\nCompactor\nTipper\nCompressor\nGenerator\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Available\nBooked\nOn Hire\nUnder Maintenance\nMaintenance Required\nOut of Service"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Data",
+   "label": "Registration No",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "label": "Serial No"
+  },
+  {
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "label": "Chassis No",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Machine Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "billing_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Defaults"
+  },
+  {
+   "default": "Block Hours",
+   "fieldname": "default_billing_method",
+   "fieldtype": "Select",
+   "label": "Default Billing Method",
+   "options": "Block Hours\nDaily\nMonthly"
+  },
+  {
+   "default": "8",
+   "fieldname": "default_block_size_hours",
+   "fieldtype": "Float",
+   "label": "Default Block Size Hours"
+  },
+  {
+   "default": "700000",
+   "fieldname": "default_block_rate",
+   "fieldtype": "Currency",
+   "label": "Default Block Rate"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rate"
+  },
+  {
+   "fieldname": "monthly_rate",
+   "fieldtype": "Currency",
+   "label": "Monthly Rate"
+  },
+  {
+   "fieldname": "insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "insurance_policy",
+   "fieldtype": "Link",
+   "label": "Insurance Policy",
+   "options": "Insurance Policy"
+  },
+  {
+   "fieldname": "insurance_expiry_date",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insurance_status",
+   "fieldtype": "Select",
+   "label": "Insurance Status",
+   "options": "Not Set\nActive\nExpiring Soon\nExpired",
+   "read_only": 1
+  },
+  {
+   "fieldname": "insurance_status_summary",
+   "fieldtype": "Data",
+   "label": "Insurance Status Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "machine_decsription_section",
+   "fieldtype": "Section Break",
+   "label": "Machine Decsription"
+  },
+  {
+   "description": "e.g. one used 2017 Caterpillar D5K2 LGP Crawler tractor, in fair condition, serial number CAT129841907429",
+   "fieldname": "machine_description",
+   "fieldtype": "Small Text",
+   "label": "Machine Description",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-16 18:01:38.643318",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Equipment Machine",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Stock User",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "machine_name,registration_no",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "registration_no"
+}

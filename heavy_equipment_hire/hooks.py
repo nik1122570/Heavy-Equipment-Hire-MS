@@ -8,7 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -44,6 +44,9 @@ app_license = "mit"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Quotation": "public/js/quotation.js",
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -137,34 +140,26 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Sales Order": {
+		"validate": "heavy_equipment_hire.overrides.sales_order.validate_sales_order",
+		"before_submit": "heavy_equipment_hire.overrides.sales_order.before_submit_sales_order",
+		"on_submit": "heavy_equipment_hire.overrides.sales_order.on_submit_sales_order",
+		"on_cancel": "heavy_equipment_hire.overrides.sales_order.on_cancel_sales_order",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"heavy_equipment_hire.tasks.all"
-# 	],
-# 	"daily": [
-# 		"heavy_equipment_hire.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"heavy_equipment_hire.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"heavy_equipment_hire.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"heavy_equipment_hire.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"heavy_equipment_hire.tasks.update_insurance_statuses",
+		"heavy_equipment_hire.tasks.update_machine_statuses",
+	],
+}
+
+after_migrate = "heavy_equipment_hire.custom_fields.create_hire_custom_fields"
 
 # Testing
 # -------
@@ -174,9 +169,9 @@ app_license = "mit"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "heavy_equipment_hire.event.get_events"
-# }
+override_whitelisted_methods = {
+	"erpnext.selling.doctype.quotation.quotation.make_sales_order": "heavy_equipment_hire.overrides.sales_order.make_sales_order",
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
@@ -184,6 +179,14 @@ app_license = "mit"
 # override_doctype_dashboards = {
 # 	"Task": "heavy_equipment_hire.task.get_dashboard_data"
 # }
+override_doctype_dashboards = {
+	"Hire Commercial Adjustment": "heavy_equipment_hire.heavy_equipment_hire.doctype.hire_commercial_adjustment.hire_commercial_adjustment_dashboard.get_data",
+	"Hire Quotation Simulation": "heavy_equipment_hire.heavy_equipment_hire.doctype.hire_quotation_simulation.hire_quotation_simulation_dashboard.get_data",
+	"Purchase Invoice": "heavy_equipment_hire.overrides.purchase_invoice_dashboard.get_data",
+	"Quotation": "heavy_equipment_hire.overrides.quotation_dashboard.get_data",
+	"Sales Invoice": "heavy_equipment_hire.overrides.sales_invoice_dashboard.get_data",
+	"Sales Order": "heavy_equipment_hire.overrides.sales_order_dashboard.get_data",
+}
 
 # exempt linked doctypes from being automatically cancelled
 #
@@ -246,4 +249,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
