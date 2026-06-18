@@ -180,9 +180,11 @@ override_whitelisted_methods = {
 # 	"Task": "heavy_equipment_hire.task.get_dashboard_data"
 # }
 override_doctype_dashboards = {
+	"Equipment Maintenance Job Card": "heavy_equipment_hire.heavy_equipment_hire.doctype.equipment_maintenance_job_card.equipment_maintenance_job_card_dashboard.get_data",
 	"Hire Commercial Adjustment": "heavy_equipment_hire.heavy_equipment_hire.doctype.hire_commercial_adjustment.hire_commercial_adjustment_dashboard.get_data",
 	"Hire Quotation Simulation": "heavy_equipment_hire.heavy_equipment_hire.doctype.hire_quotation_simulation.hire_quotation_simulation_dashboard.get_data",
 	"Purchase Invoice": "heavy_equipment_hire.overrides.purchase_invoice_dashboard.get_data",
+	"Purchase Order": "heavy_equipment_hire.overrides.purchase_order_dashboard.get_data",
 	"Quotation": "heavy_equipment_hire.overrides.quotation_dashboard.get_data",
 	"Sales Invoice": "heavy_equipment_hire.overrides.sales_invoice_dashboard.get_data",
 	"Sales Order": "heavy_equipment_hire.overrides.sales_order_dashboard.get_data",

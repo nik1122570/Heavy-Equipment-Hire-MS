@@ -124,13 +124,45 @@ def create_hire_custom_fields():
 				"hidden": 1,
 			},
 		],
+		"Purchase Order": [
+			{
+				"fieldname": "custom_equipment_maintenance_job_card",
+				"fieldtype": "Link",
+				"label": "Equipment Maintenance Job Card",
+				"options": "Equipment Maintenance Job Card",
+				"insert_after": "items",
+				"read_only": 1,
+				"hidden": 1,
+			},
+			{
+				"fieldname": "custom_equipment_machine",
+				"fieldtype": "Link",
+				"label": "Equipment Machine",
+				"options": "Equipment Machine",
+				"insert_after": "custom_equipment_maintenance_job_card",
+				"read_only": 1,
+				"hidden": 1,
+			},
+			{
+				"fieldname": "custom_machine_cost_center",
+				"fieldtype": "Link",
+				"label": "Machine Cost Center",
+				"options": "Cost Center",
+				"insert_after": "custom_equipment_machine",
+				"read_only": 1,
+				"hidden": 1,
+			},
+		],
 	}
 	create_custom_fields(custom_fields, update=True)
 	frappe.clear_cache(doctype="Quotation")
 	frappe.clear_cache(doctype="Sales Order")
 	frappe.clear_cache(doctype="Purchase Invoice")
 	frappe.clear_cache(doctype="Sales Invoice")
+	frappe.clear_cache(doctype="Purchase Order")
 	update_machine_statuses_after_migrate()
+	sync_machine_insurance_after_migrate()
+	sync_workspace_after_migrate()
 
 
 def remove_visible_quotation_hire_fields():
@@ -168,6 +200,20 @@ def update_machine_statuses_after_migrate():
 	from heavy_equipment_hire.equipment_status import update_all_machine_hire_statuses
 
 	update_all_machine_hire_statuses()
+
+
+def sync_machine_insurance_after_migrate():
+	from heavy_equipment_hire.heavy_equipment_hire.doctype.insurance_policy.insurance_policy import (
+		sync_machine_insurance_from_policies,
+	)
+
+	sync_machine_insurance_from_policies()
+
+
+def sync_workspace_after_migrate():
+	from heavy_equipment_hire.workspace_sync import sync_heavy_equipment_workspace
+
+	sync_heavy_equipment_workspace()
 
 
 def update_stale_report_references():

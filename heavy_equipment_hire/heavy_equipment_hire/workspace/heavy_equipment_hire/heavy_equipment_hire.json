@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Heavy Equipment Hire</b></span>\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Workflow</b></span>\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
- "creation": "2026-06-17 00:00:00.000000",
+ "content": "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Heavy Equipment Hire</b></span>\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_maintenance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Maintenance Job Card\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Workflow</b></span>\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_maintenance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
+ "creation": "2026-06-17 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -17,6 +17,7 @@
    "is_query_report": 0,
    "label": "Masters",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -47,6 +48,7 @@
    "is_query_report": 0,
    "label": "Pre-Sales",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -88,6 +90,7 @@
    "is_query_report": 0,
    "label": "Operations",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -116,8 +119,40 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Maintenance",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Equipment Machine, Supplier, Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment Maintenance Job Card",
+   "link_count": 0,
+   "link_to": "Equipment Maintenance Job Card",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Supplier, Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Order",
+   "link_count": 0,
+   "link_to": "Purchase Order",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Billing",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -137,6 +172,7 @@
    "is_query_report": 0,
    "label": "Reports",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -149,6 +185,7 @@
    "link_to": "Machine Availability Calendar",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Equipment Machine",
    "type": "Link"
   },
   {
@@ -160,6 +197,7 @@
    "link_to": "Revised Hire Profitability",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Hire Quotation Simulation",
    "type": "Link"
   },
   {
@@ -171,6 +209,7 @@
    "link_to": "Hire Machine Utilization",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Sales Order",
    "type": "Link"
   },
   {
@@ -182,6 +221,7 @@
    "link_to": "Machine Utilization Report",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Equipment Machine",
    "type": "Link"
   },
   {
@@ -193,6 +233,7 @@
    "link_to": "Customer Statement By Machine Project",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Equipment Machine",
    "type": "Link"
   },
   {
@@ -204,6 +245,7 @@
    "link_to": "Insurance Report",
    "link_type": "Report",
    "onboard": 1,
+   "report_ref_doctype": "Equipment Machine",
    "type": "Link"
   },
   {
@@ -211,6 +253,7 @@
    "is_query_report": 0,
    "label": "Setup",
    "link_count": 0,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -270,7 +313,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-06-17 00:00:00.000000",
+ "modified": "2026-06-18 12:36:56.125427",
  "modified_by": "Administrator",
  "module": "Heavy Equipment Hire",
  "name": "Heavy Equipment Hire",
@@ -342,6 +385,15 @@
    "type": "DocType"
   },
   {
+   "color": "Red",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Equipment Maintenance Job Card",
+   "link_to": "Equipment Maintenance Job Card",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
    "color": "Purple",
    "doc_view": "List",
    "format": "{}",
@@ -352,28 +404,31 @@
   },
   {
    "color": "Yellow",
-   "doc_view": "Report",
+   "doc_view": "",
    "format": "{}",
    "label": "Machine Availability Calendar",
    "link_to": "Machine Availability Calendar",
+   "report_ref_doctype": "Equipment Machine",
    "stats_filter": "[]",
    "type": "Report"
   },
   {
    "color": "Red",
-   "doc_view": "Report",
+   "doc_view": "",
    "format": "{}",
    "label": "Hire Machine Utilization",
    "link_to": "Hire Machine Utilization",
+   "report_ref_doctype": "Sales Order",
    "stats_filter": "[]",
    "type": "Report"
   },
   {
    "color": "Grey",
-   "doc_view": "Report",
+   "doc_view": "",
    "format": "{}",
    "label": "Insurance Report",
    "link_to": "Insurance Report",
+   "report_ref_doctype": "Equipment Machine",
    "stats_filter": "[]",
    "type": "Report"
   }

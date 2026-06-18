@@ -5,12 +5,16 @@ from frappe.utils import getdate, today
 MANUAL_STATUSES = {"Under Maintenance", "Maintenance Required", "Out of Service"}
 
 
-def update_machine_hire_status(machine):
+def update_machine_hire_status(machine, force=False):
 	if not machine:
 		return
 
+	if has_open_maintenance(machine):
+		frappe.db.set_value("Equipment Machine", machine, "status", "Under Maintenance", update_modified=False)
+		return
+
 	current_status = frappe.db.get_value("Equipment Machine", machine, "status")
-	if current_status in MANUAL_STATUSES:
+	if current_status in MANUAL_STATUSES and not force:
 		return
 
 	status = get_machine_hire_status(machine)
@@ -49,3 +53,19 @@ def get_machine_hire_status(machine):
 		return "Booked"
 
 	return "Available"
+
+
+def has_open_maintenance(machine):
+	if not machine:
+		return False
+
+	return bool(
+		frappe.db.exists(
+			"Equipment Maintenance Job Card",
+			{
+				"docstatus": 1,
+				"equipment_machine": machine,
+				"status": "Open",
+			},
+		)
+	)

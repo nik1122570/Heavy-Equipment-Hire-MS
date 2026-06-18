@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "EMJC-.YYYY.-.####",
+ "creation": "2026-06-18 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "equipment_machine",
+  "machine_name",
+  "maintenance_type",
+  "priority",
+  "status",
+  "column_break_main",
+  "company",
+  "cost_center",
+  "supplier",
+  "purchase_order",
+  "date_section",
+  "reported_date",
+  "expected_completion_date",
+  "completed_date",
+  "responsible_person",
+  "fault_section",
+  "fault_description",
+  "work_done",
+  "items_section",
+  "items",
+  "total_section",
+  "total_maintenance_cost",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "equipment_machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment_machine.machine_name",
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name",
+   "read_only": 1
+  },
+  {
+   "default": "Breakdown",
+   "fieldname": "maintenance_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Maintenance Type",
+   "options": "Breakdown\nPlanned Service\nInspection\nRepair\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "equipment_machine.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment_machine.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Machine Cost Center",
+   "options": "Cost Center",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_section",
+   "fieldtype": "Section Break",
+   "label": "Dates"
+  },
+  {
+   "default": "Today",
+   "fieldname": "reported_date",
+   "fieldtype": "Date",
+   "label": "Reported Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_completion_date",
+   "fieldtype": "Date",
+   "label": "Expected Completion Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "completed_date",
+   "fieldtype": "Date",
+   "label": "Completed Date"
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Data",
+   "label": "Responsible Person"
+  },
+  {
+   "fieldname": "fault_section",
+   "fieldtype": "Section Break",
+   "label": "Fault and Work Details"
+  },
+  {
+   "fieldname": "fault_description",
+   "fieldtype": "Small Text",
+   "label": "Fault / Problem Description",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "work_done",
+   "fieldtype": "Small Text",
+   "label": "Work Done / Completion Notes"
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Charges / Spare Parts"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Charges / Spare Parts",
+   "options": "Equipment Maintenance Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_maintenance_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Maintenance Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Equipment Maintenance Job Card",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-18 12:25:10.993628",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Equipment Maintenance Job Card",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "role": "Stock User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "equipment_machine,supplier,status,maintenance_type",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "equipment_machine"
+}

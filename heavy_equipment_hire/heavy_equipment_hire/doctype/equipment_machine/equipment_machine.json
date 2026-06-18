@@ -27,6 +27,7 @@
   "monthly_rate",
   "insurance_section",
   "insurance_policy",
+  "insurance_provider",
   "insurance_expiry_date",
   "insurance_status",
   "insurance_status_summary"
@@ -150,6 +151,15 @@
    "options": "Insurance Policy"
   },
   {
+   "fetch_from": "insurance_policy.provider",
+   "fieldname": "insurance_provider",
+   "fieldtype": "Link",
+   "label": "Insurance Provider",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "insurance_policy.expiry_date",
    "fieldname": "insurance_expiry_date",
    "fieldtype": "Date",
    "label": "Insurance Expiry Date",
@@ -159,7 +169,6 @@
    "fieldname": "insurance_status",
    "fieldtype": "Select",
    "label": "Insurance Status",
-   "options": "Not Set\nActive\nExpiring Soon\nExpired",
    "read_only": 1
   },
   {
@@ -183,7 +192,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-16 18:01:38.643318",
+ "modified": "2026-06-18 14:17:10.568471",
  "modified_by": "Administrator",
  "module": "Heavy Equipment Hire",
  "name": "Equipment Machine",

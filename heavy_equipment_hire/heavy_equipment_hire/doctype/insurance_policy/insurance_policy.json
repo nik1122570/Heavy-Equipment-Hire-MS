@@ -1,130 +1,141 @@
 {
-    "actions":  [
-
-                ],
-    "allow_rename":  1,
-    "autoname":  "field:policy_number",
-    "creation":  "2026-06-15 00:00:00.000000",
-    "doctype":  "DocType",
-    "engine":  "InnoDB",
-    "field_order":  [
-                        "policy_number",
-                        "machine",
-                        "provider",
-                        "status",
-                        "column_break_1",
-                        "start_date",
-                        "expiry_date",
-                        "insured_value",
-                        "premium_amount",
-                        "remarks"
-                    ],
-    "fields":  [
-                   {
-                       "label":  "Policy Number",
-                       "fieldname":  "policy_number",
-                       "fieldtype":  "Data",
-                       "reqd":  1,
-                       "in_list_view":  1
-                   },
-                   {
-                       "label":  "Machine",
-                       "fieldname":  "machine",
-                       "fieldtype":  "Link",
-                       "options":  "Equipment Machine",
-                       "reqd":  1,
-                       "in_list_view":  1
-                   },
-                   {
-                       "label":  "Provider",
-                       "fieldname":  "provider",
-                       "fieldtype":  "Data",
-                       "reqd":  1,
-                       "in_list_view":  1
-                   },
-                   {
-                       "label":  "Status",
-                       "fieldname":  "status",
-                       "fieldtype":  "Select",
-                       "options":  "Draft\nActive\nExpiring Soon\nExpired\nCancelled",
-                       "read_only":  1,
-                       "in_list_view":  1
-                   },
-                   {
-                       "fieldtype":  "Column Break",
-                       "fieldname":  "column_break_1"
-                   },
-                   {
-                       "label":  "Start Date",
-                       "fieldname":  "start_date",
-                       "fieldtype":  "Date",
-                       "reqd":  1
-                   },
-                   {
-                       "label":  "Expiry Date",
-                       "fieldname":  "expiry_date",
-                       "fieldtype":  "Date",
-                       "reqd":  1,
-                       "in_list_view":  1
-                   },
-                   {
-                       "label":  "Insured Value",
-                       "fieldname":  "insured_value",
-                       "fieldtype":  "Currency"
-                   },
-                   {
-                       "label":  "Premium Amount",
-                       "fieldname":  "premium_amount",
-                       "fieldtype":  "Currency"
-                   },
-                   {
-                       "label":  "Remarks",
-                       "fieldname":  "remarks",
-                       "fieldtype":  "Small Text"
-                   }
-               ],
-    "index_web_pages_for_search":  1,
-    "istable":  0,
-    "is_submittable":  1,
-    "links":  [
-
-              ],
-    "modified":  "2026-06-15 00:00:00.000000",
-    "modified_by":  "Administrator",
-    "module":  "Heavy Equipment Hire",
-    "name":  "Insurance Policy",
-    "owner":  "Administrator",
-    "permissions":  [
-                        {
-                            "role":  "System Manager",
-                            "read":  1,
-                            "write":  1,
-                            "create":  1,
-                            "delete":  1,
-                            "submit":  1,
-                            "cancel":  1,
-                            "amend":  1
-                        },
-                        {
-                            "role":  "Accounts User",
-                            "read":  1,
-                            "write":  1,
-                            "create":  1,
-                            "submit":  1,
-                            "cancel":  1
-                        },
-                        {
-                            "role":  "Stock User",
-                            "read":  1,
-                            "write":  1,
-                            "create":  1
-                        }
-                    ],
-    "sort_field":  "modified",
-    "sort_order":  "DESC",
-    "states":  [
-
-               ],
-    "title_field":  "policy_number",
-    "search_fields":  "policy_number,machine,provider"
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:machine",
+ "creation": "2026-06-15 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "machine",
+  "policy_number",
+  "provider",
+  "status",
+  "column_break_1",
+  "start_date",
+  "expiry_date",
+  "insured_value",
+  "premium_amount",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "description": "Can be  Complementary , 3rd Party or any other else type",
+   "fieldname": "policy_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Insurance Type",
+   "options": "Insurance Type",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Machine",
+   "options": "Equipment Machine",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Provider",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nExpiring Soon\nExpired\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insured_value",
+   "fieldtype": "Currency",
+   "label": "Insured Value"
+  },
+  {
+   "fieldname": "premium_amount",
+   "fieldtype": "Currency",
+   "label": "Premium Amount"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Insurance Policy",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-18 13:55:08.920769",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Insurance Policy",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Stock User",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "policy_number,machine,provider",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "policy_number"
 }

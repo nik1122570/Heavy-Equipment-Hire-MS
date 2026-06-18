@@ -35,6 +35,7 @@ def before_submit_sales_order(doc, method=None):
 	hydrate_hire_details(doc)
 	validate_hire_dates(doc)
 	validate_machine_insurance(doc)
+	validate_machine_maintenance(doc)
 	validate_machine_availability(doc)
 
 
@@ -155,6 +156,29 @@ def validate_machine_availability(doc):
 			_("Machine {0} is already booked in Sales Order {1} for an overlapping period.").format(
 				get_link_to_form("Equipment Machine", machine),
 				get_link_to_form("Sales Order", overlap[0].name),
+			)
+		)
+
+
+def validate_machine_maintenance(doc):
+	machine = doc.get("custom_equipment_machine")
+	if not machine:
+		return
+
+	open_job_card = frappe.db.get_value(
+		"Equipment Maintenance Job Card",
+		{
+			"equipment_machine": machine,
+			"docstatus": 1,
+			"status": "Open",
+		},
+		"name",
+	)
+	if open_job_card:
+		frappe.throw(
+			_("Machine {0} is under maintenance in Job Card {1}. Complete or cancel the Job Card before booking.").format(
+				get_link_to_form("Equipment Machine", machine),
+				get_link_to_form("Equipment Maintenance Job Card", open_job_card),
 			)
 		)
 
