@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:FLT-{YYYY}-{#####}",
+ "creation": "2026-06-21 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tracking_section",
+  "tracking_date",
+  "equipment_machine",
+  "machine_name",
+  "column_break_1",
+  "fleet_owner",
+  "asset_group",
+  "status",
+  "company",
+  "project",
+  "cost_center",
+  "hours_section",
+  "gps_hours",
+  "physical_hours",
+  "variance_hours",
+  "variance_direction",
+  "movement_section",
+  "mileage",
+  "starting_location",
+  "ending_location",
+  "reason_section",
+  "reason",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking Details"
+  },
+  {
+   "fieldname": "tracking_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Tracking Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment_machine.machine_name",
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fleet_owner",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fleet Owner",
+   "options": "\nBMG\nHINNO\nOther"
+  },
+  {
+   "fieldname": "asset_group",
+   "fieldtype": "Select",
+   "label": "Asset Group",
+   "options": "\nMachine\nTruck\nOther"
+  },
+  {
+   "default": "Reporting",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Reporting\nUnder Contract\nIn Transit\nIdle\nBreakdown\nNo Report\nOther"
+  },
+  {
+   "fetch_from": "equipment_machine.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fetch_from": "equipment_machine.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hours_section",
+   "fieldtype": "Section Break",
+   "label": "Hours Reconciliation"
+  },
+  {
+   "default": "0",
+   "description": "Enter decimal hours. Example: 8, 0.5, 1.25.",
+   "fieldname": "gps_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "GPS Hours",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "description": "Physical or operator-reported hours in decimal hours.",
+   "fieldname": "physical_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Physical Hours",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "variance_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Variance Hours",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_direction",
+   "fieldtype": "Select",
+   "label": "Variance Direction",
+   "options": "\nGPS Greater\nPhysical Greater\nNo Variance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "movement_section",
+   "fieldtype": "Section Break",
+   "label": "Movement"
+  },
+  {
+   "default": "0",
+   "fieldname": "mileage",
+   "fieldtype": "Float",
+   "label": "Mileage",
+   "precision": "2"
+  },
+  {
+   "fieldname": "starting_location",
+   "fieldtype": "Small Text",
+   "label": "Starting Location"
+  },
+  {
+   "fieldname": "ending_location",
+   "fieldtype": "Small Text",
+   "label": "Ending Location"
+  },
+  {
+   "fieldname": "reason_section",
+   "fieldtype": "Section Break",
+   "label": "Reason and Remarks"
+  },
+  {
+   "description": "Required when GPS Hours are greater than Physical Hours.",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Fleet Tracker",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-21 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Fleet Tracker",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "equipment_machine,machine_name,fleet_owner,status",
+ "sort_field": "tracking_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "equipment_machine"
+}

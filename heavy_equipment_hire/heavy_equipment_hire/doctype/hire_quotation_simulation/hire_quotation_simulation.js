@@ -1,7 +1,7 @@
 frappe.ui.form.on("Hire Quotation Simulation", {
 	refresh(frm) {
-		calculate_simulation_totals(frm);
 		render_profit_dashboard(frm);
+		clear_false_dirty_state(frm);
 
 		if (frm.doc.docstatus === 1 && !frm.doc.quotation) {
 			frm.add_custom_button(__("Create Quotation"), () => {
@@ -179,6 +179,29 @@ function calculate_simulation_totals(frm) {
 	frm.set_value("expected_profit", profit);
 	frm.set_value("profit_margin_percentage", margin);
 	render_profit_dashboard(frm);
+}
+
+function clear_false_dirty_state(frm) {
+	if (frm.doc.docstatus !== 1) return;
+
+	// Submitted simulations can receive backend link updates, such as Quotation
+	// or Purchase Invoice references. Opening the form should never look unsaved.
+	setTimeout(() => {
+		if (frm.doc.docstatus === 1 && !has_dirty_fields(frm)) {
+			frm.doc.__unsaved = 0;
+			if (frm.page) {
+				frm.page.clear_indicator && frm.page.clear_indicator();
+				frm.page.set_indicator(__("Submitted"), "blue");
+			}
+		}
+	}, 200);
+}
+
+function has_dirty_fields(frm) {
+	return Object.keys(frm.doc || {}).some((fieldname) => {
+		if (fieldname.startsWith("__")) return false;
+		return frm.is_new() && frm.doc[fieldname];
+	});
 }
 
 function render_profit_dashboard(frm) {

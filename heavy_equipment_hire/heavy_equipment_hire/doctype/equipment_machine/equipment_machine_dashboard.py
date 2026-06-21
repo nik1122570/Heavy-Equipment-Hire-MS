@@ -10,9 +10,11 @@ def get_data():
 			"Insurance Policy": "machine",
 			"Equipment Maintenance Job Card": "equipment_machine",
 			"Purchase Order": "custom_equipment_machine",
+			"Fleet Tracker": "equipment_machine",
 		},
 		"transactions": [
 			{"label": _("Hire"), "items": ["Hire Quotation Simulation", "Quotation", "Sales Order"]},
+			{"label": _("Operations"), "items": ["Fleet Tracker"]},
 			{"label": _("Maintenance"), "items": ["Equipment Maintenance Job Card", "Purchase Order"]},
 			{"label": _("Compliance"), "items": ["Insurance Policy"]},
 		],

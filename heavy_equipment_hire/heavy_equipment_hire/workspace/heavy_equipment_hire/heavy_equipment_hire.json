@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Heavy Equipment Hire</b></span>\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_maintenance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Maintenance Job Card\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Workflow</b></span>\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_maintenance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
+ "content": "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Heavy Equipment Hire</b></span>\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_maintenance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Maintenance Job Card\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_fleet_tracker\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fleet Tracker\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Workflow</b></span>\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_maintenance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
  "creation": "2026-06-17 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
@@ -101,6 +101,17 @@
    "label": "Sales Order",
    "link_count": 0,
    "link_to": "Sales Order",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Equipment Machine",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fleet Tracker",
+   "link_count": 0,
+   "link_to": "Fleet Tracker",
    "link_type": "DocType",
    "onboard": 1,
    "type": "Link"
@@ -210,6 +221,18 @@
    "link_type": "Report",
    "onboard": 1,
    "report_ref_doctype": "Sales Order",
+   "type": "Link"
+  },
+  {
+   "dependencies": "Fleet Tracker",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Daily Fleet Variance Report",
+   "link_count": 0,
+   "link_to": "Daily Fleet Variance Report",
+   "link_type": "Report",
+   "onboard": 1,
+   "report_ref_doctype": "Fleet Tracker",
    "type": "Link"
   },
   {
@@ -385,6 +408,15 @@
    "type": "DocType"
   },
   {
+   "color": "Cyan",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Fleet Tracker",
+   "link_to": "Fleet Tracker",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
    "color": "Red",
    "doc_view": "List",
    "format": "{}",
@@ -419,6 +451,16 @@
    "label": "Hire Machine Utilization",
    "link_to": "Hire Machine Utilization",
    "report_ref_doctype": "Sales Order",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "",
+   "format": "{}",
+   "label": "Daily Fleet Variance Report",
+   "link_to": "Daily Fleet Variance Report",
+   "report_ref_doctype": "Fleet Tracker",
    "stats_filter": "[]",
    "type": "Report"
   },
