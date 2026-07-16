@@ -1,0 +1,266 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:EOL-{YYYY}-{#####}",
+ "creation": "2026-07-17 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "operation_details_section",
+  "operation_date",
+  "equipment_machine",
+  "machine_name",
+  "column_break_1",
+  "fleet_owner",
+  "asset_group",
+  "operation_status",
+  "company",
+  "cost_center",
+  "commercial_section",
+  "customer",
+  "payment_status",
+  "payment_amount",
+  "column_break_zsme",
+  "hours_worked",
+  "hours_meter_reading",
+  "full_day",
+  "half_day",
+  "people_location_section",
+  "person_type",
+  "operator",
+  "location",
+  "starting_location",
+  "ending_location",
+  "daily_notes_section",
+  "work_done",
+  "idle_reason",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "operation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Details"
+  },
+  {
+   "fieldname": "operation_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Operation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment_machine.machine_name",
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fleet_owner",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fleet Owner",
+   "options": "\nBMG\nHINNO\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_group",
+   "fieldtype": "Select",
+   "label": "Asset Group",
+   "options": "\nMachine\nTruck\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Working",
+   "fieldname": "operation_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Operation Status",
+   "options": "Working\nIdle\nIn Transit\nUnder Maintenance\nUnder Contract\nWaiting Customer Order\nWaiting Loading\nMobilization\nDemobilization\nBreakdown\nOther",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment_machine.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "equipment_machine.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commercial_section",
+   "fieldtype": "Section Break",
+   "label": "Client and Payment"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "default": "Not Applicable",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Paid\nAdvance Paid\nNot Paid\nUnder Contract\nNot Applicable"
+  },
+  {
+   "default": "0",
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Payment Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "people_location_section",
+   "fieldtype": "Section Break",
+   "label": "People and Location"
+  },
+  {
+   "fieldname": "person_type",
+   "fieldtype": "Select",
+   "label": "Person Type",
+   "options": "\nOperator\nDriver"
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Link",
+   "label": "Operator / Driver",
+   "options": "Operator"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "starting_location",
+   "fieldtype": "Data",
+   "label": "Starting Location"
+  },
+  {
+   "fieldname": "ending_location",
+   "fieldtype": "Data",
+   "label": "Ending Location"
+  },
+  {
+   "fieldname": "daily_notes_section",
+   "fieldtype": "Section Break",
+   "label": "Daily Notes"
+  },
+  {
+   "fieldname": "work_done",
+   "fieldtype": "Text Editor",
+   "label": "Work Done / Nature of Work / Daily Notes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "idle_reason",
+   "fieldtype": "Small Text",
+   "label": "Idle Reason"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Equipment Operation Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_zsme",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hours_worked",
+   "fieldtype": "Int",
+   "label": "Physical Hours Worked"
+  },
+  {
+   "default": "0",
+   "fieldname": "full_day",
+   "fieldtype": "Check",
+   "label": "Full Day"
+  },
+  {
+   "default": "0",
+   "fieldname": "half_day",
+   "fieldtype": "Check",
+   "label": "Half Day"
+  },
+  {
+   "fieldname": "hours_meter_reading",
+   "fieldtype": "Int",
+   "label": "Hours Meter Reading"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-07-17 01:38:40.447222",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Equipment Operation Log",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "equipment_machine,machine_name,operation_status,location",
+ "sort_field": "operation_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "equipment_machine"
+}
