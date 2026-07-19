@@ -29,14 +29,20 @@ def get_columns():
 		{"label": _("Amount"), "fieldname": "amount", "fieldtype": "Currency", "width": 145},
 		{"label": _("Account"), "fieldname": "account", "fieldtype": "Link", "options": "Account", "width": 210},
 		{"label": _("Item"), "fieldname": "item", "fieldtype": "Link", "options": "Item", "width": 150},
-		{"label": _("Purchase Order"), "fieldname": "purchase_order", "fieldtype": "Link", "options": "Purchase Order", "width": 160},
+		{
+			"label": _("Purchase Invoice"),
+			"fieldname": "purchase_invoice",
+			"fieldtype": "Link",
+			"options": "Purchase Invoice",
+			"width": 160,
+		},
 	]
 
 
 def get_purchase_rows(filters):
 	conditions = [
-		"po.docstatus = 1",
-		"po.transaction_date between %(from_date)s and %(to_date)s",
+		"pi.docstatus = 1",
+		"pi.posting_date between %(from_date)s and %(to_date)s",
 	]
 	params = {
 		"from_date": filters.from_date,
@@ -44,35 +50,35 @@ def get_purchase_rows(filters):
 	}
 
 	if filters.get("cost_center"):
-		conditions.append("poi.cost_center = %(cost_center)s")
+		conditions.append("pii.cost_center = %(cost_center)s")
 		params["cost_center"] = filters.cost_center
 	if filters.get("supplier"):
-		conditions.append("po.supplier = %(supplier)s")
+		conditions.append("pi.supplier = %(supplier)s")
 		params["supplier"] = filters.supplier
 	if filters.get("item"):
-		conditions.append("poi.item_code = %(item)s")
+		conditions.append("pii.item_code = %(item)s")
 		params["item"] = filters.item
 	if filters.get("account"):
-		conditions.append("poi.expense_account = %(account)s")
+		conditions.append("pii.expense_account = %(account)s")
 		params["account"] = filters.account
 
 	return frappe.db.sql(
 		f"""
 		select
-			po.transaction_date as date,
-			po.name as purchase_order,
-			po.supplier,
-			coalesce(po.supplier_name, po.supplier) as supplier_name,
-			poi.item_code as item,
-			poi.item_name,
-			poi.description,
-			poi.cost_center,
-			poi.expense_account as account,
-			poi.base_amount as amount
-		from `tabPurchase Order` po
-		inner join `tabPurchase Order Item` poi on poi.parent = po.name
+			pi.posting_date as date,
+			pi.name as purchase_invoice,
+			pi.supplier,
+			coalesce(pi.supplier_name, pi.supplier) as supplier_name,
+			pii.item_code as item,
+			pii.item_name,
+			pii.description,
+			pii.cost_center,
+			pii.expense_account as account,
+			pii.base_amount as amount
+		from `tabPurchase Invoice` pi
+		inner join `tabPurchase Invoice Item` pii on pii.parent = pi.name
 		where {" and ".join(conditions)}
-		order by poi.cost_center asc, po.transaction_date asc, po.name asc, poi.idx asc
+		order by pii.cost_center asc, pi.posting_date asc, pi.name asc, pii.idx asc
 		""",
 		params,
 		as_dict=True,
@@ -111,7 +117,7 @@ def build_grouped_rows(rows):
 						"amount": flt(row.amount),
 						"account": row.account,
 						"item": row.item,
-						"purchase_order": row.purchase_order,
+						"purchase_invoice": row.purchase_invoice,
 						"indent": 1,
 					}
 				)
@@ -136,7 +142,7 @@ def get_report_summary(rows):
 
 	return [
 		{"value": total_amount, "label": _("Total Procurement"), "datatype": "Currency", "indicator": "Blue"},
-		{"value": len(rows), "label": _("Purchase Lines"), "datatype": "Int", "indicator": "Green"},
+		{"value": len(rows), "label": _("Invoice Lines"), "datatype": "Int", "indicator": "Green"},
 		{"value": cost_centers, "label": _("Cost Centers"), "datatype": "Int", "indicator": "Orange"},
 		{"value": suppliers, "label": _("Suppliers"), "datatype": "Int", "indicator": "Purple"},
 		{"value": items, "label": _("Items"), "datatype": "Int", "indicator": "Grey"},

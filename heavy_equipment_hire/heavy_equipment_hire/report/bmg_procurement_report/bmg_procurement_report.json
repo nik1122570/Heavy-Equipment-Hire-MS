@@ -15,7 +15,7 @@
  "name": "BMG Procurement Report",
  "owner": "Administrator",
  "prepared_report": 0,
- "ref_doctype": "Purchase Order",
+ "ref_doctype": "Purchase Invoice",
  "report_name": "BMG Procurement Report",
  "report_type": "Script Report",
  "roles": [

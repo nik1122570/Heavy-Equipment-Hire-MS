@@ -287,7 +287,7 @@
                       "type":  "Link"
                   },
                   {
-                      "dependencies":  "Purchase Order",
+                      "dependencies":  "Purchase Invoice",
                       "hidden":  0,
                       "is_query_report":  0,
                       "label":  "BMG Procurement Report",
@@ -295,7 +295,7 @@
                       "link_to":  "BMG Procurement Report",
                       "link_type":  "Report",
                       "onboard":  1,
-                      "report_ref_doctype":  "Purchase Order",
+                      "report_ref_doctype":  "Purchase Invoice",
                       "type":  "Link"
                   },
                   {
@@ -535,7 +535,7 @@
                           "format":  "{}",
                           "label":  "BMG Procurement Report",
                           "link_to":  "BMG Procurement Report",
-                          "report_ref_doctype":  "Purchase Order",
+                          "report_ref_doctype":  "Purchase Invoice",
                           "stats_filter":  "[]",
                           "type":  "Report"
                       },
