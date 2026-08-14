@@ -32,7 +32,7 @@ frappe.query_reports["Sales Per Equipment Report"] = {
 		if (!data) return value;
 
 		if (data.is_group) {
-			if (["customer_or_date", "amount"].includes(column.fieldname)) {
+			if (["machine", "amount"].includes(column.fieldname)) {
 				return `<strong>${value}</strong>`;
 			}
 			return "";

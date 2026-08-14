@@ -22,9 +22,10 @@ def validate_filters(filters):
 
 def get_columns():
 	return [
-		{"label": _("Customer"), "fieldname": "customer_or_date", "fieldtype": "Data", "width": 185},
+		{"label": _("Machine"), "fieldname": "machine", "fieldtype": "Data", "width": 260},
+		{"label": _("Date"), "fieldname": "date", "fieldtype": "Date", "width": 115},
+		{"label": _("Customer"), "fieldname": "customer", "fieldtype": "Link", "options": "Customer", "width": 185},
 		{"label": _("Item"), "fieldname": "item", "fieldtype": "Data", "width": 260},
-		{"label": _("Cost Center"), "fieldname": "cost_center", "fieldtype": "Link", "options": "Cost Center", "width": 230},
 		{"label": _("Amount"), "fieldname": "amount", "fieldtype": "Currency", "width": 145},
 		{"label": _("Sales Invoice"), "fieldname": "sales_invoice", "fieldtype": "Link", "options": "Sales Invoice", "width": 160},
 	]
@@ -62,7 +63,7 @@ def get_invoice_rows(filters):
 		from `tabSales Invoice` si
 		inner join `tabSales Invoice Item` sii on sii.parent = si.name
 		where {" and ".join(conditions)}
-		order by si.customer_name asc, si.customer asc, si.posting_date asc, si.name asc, sii.idx asc
+		order by sii.cost_center asc, si.posting_date asc, si.customer_name asc, si.customer asc, si.name asc, sii.idx asc
 		""",
 		params,
 		as_dict=True,
@@ -72,17 +73,17 @@ def get_invoice_rows(filters):
 def build_grouped_rows(rows):
 	grouped = {}
 	for row in rows:
-		customer_key = row.customer_name or row.customer or _("No Customer")
-		grouped.setdefault(customer_key, [])
-		grouped[customer_key].append(row)
+		machine = row.cost_center or _("No Machine / Cost Center")
+		grouped.setdefault(machine, [])
+		grouped[machine].append(row)
 
 	data = []
-	for customer, customer_rows in grouped.items():
-		total = sum(flt(row.amount) for row in customer_rows)
+	for machine, machine_rows in grouped.items():
+		total = sum(flt(row.amount) for row in machine_rows)
 		data.append(
 			frappe._dict(
 				{
-					"customer_or_date": customer,
+					"machine": f"{machine} ({len(machine_rows)})",
 					"amount": total,
 					"is_group": 1,
 					"indent": 0,
@@ -90,13 +91,14 @@ def build_grouped_rows(rows):
 			)
 		)
 
-		for row in customer_rows:
+		for row in machine_rows:
 			data.append(
 				frappe._dict(
 					{
-						"customer_or_date": row.posting_date,
+						"machine": "",
+						"date": row.posting_date,
+						"customer": row.customer,
 						"item": clean_description(row.description) or row.item_name or row.item_code,
-						"cost_center": row.cost_center,
 						"amount": flt(row.amount),
 						"sales_invoice": row.sales_invoice,
 						"indent": 1,
