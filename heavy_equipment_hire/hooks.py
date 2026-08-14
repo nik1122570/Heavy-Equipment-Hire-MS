@@ -120,13 +120,13 @@ doctype_js = {
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
+permission_query_conditions = {
+	"Employee KPI Review": "heavy_equipment_hire.heavy_equipment_hire.doctype.employee_kpi_review.employee_kpi_review.get_permission_query_conditions",
+}
+
+has_permission = {
+	"Employee KPI Review": "heavy_equipment_hire.heavy_equipment_hire.doctype.employee_kpi_review.employee_kpi_review.has_permission",
+}
 
 # DocType Class
 # ---------------

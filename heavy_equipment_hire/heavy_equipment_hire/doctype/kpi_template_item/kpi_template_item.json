@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-08-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_area",
+  "metric",
+  "target",
+  "weight"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_area",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KPI Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Metric",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target",
+   "fieldtype": "Small Text",
+   "label": "Target",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight %",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "KPI Template Item",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

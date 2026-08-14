@@ -2,7 +2,7 @@
     "charts":  [
 
                ],
-    "content":  "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eHeavy Equipment Hire\\u003c/b\\u003e\\u003c/span\\u003e\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_maintenance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Maintenance Job Card\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_fleet_tracker\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fleet Tracker\",\"col\":3}},{\"id\":\"heh_daily_operations\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"BMG Daily Operations Report\",\"col\":3}},{\"id\":\"heh_operation_log\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Operation Log\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_bmg_procurement\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"BMG Procurement Report\",\"col\":3}},{\"id\":\"heh_sales_per_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Per Equipment Report\",\"col\":3}},{\"id\":\"heh_revenue_per_customer\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Revenue per Customer\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eWorkflow\\u003c/b\\u003e\\u003c/span\\u003e\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_maintenance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}}]",
+    "content":  "[{\"id\":\"heh_header\",\"type\":\"header\",\"data\":{\"text\":\"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eHeavy Equipment Hire\\u003c/b\\u003e\\u003c/span\\u003e\",\"col\":12}},{\"id\":\"heh_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Machine\",\"col\":3}},{\"id\":\"heh_simulation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Quotation Simulation\",\"col\":3}},{\"id\":\"heh_adjustment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Commercial Adjustment\",\"col\":3}},{\"id\":\"heh_maintenance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Maintenance Job Card\",\"col\":3}},{\"id\":\"heh_quotation\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"heh_sales_order\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"heh_fleet_tracker\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fleet Tracker\",\"col\":3}},{\"id\":\"heh_daily_operations\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"BMG Daily Operations Report\",\"col\":3}},{\"id\":\"heh_operation_log\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Operation Log\",\"col\":3}},{\"id\":\"heh_calendar_page\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Equipment Availability Calendar\",\"col\":3}},{\"id\":\"heh_calendar_report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine Availability Calendar\",\"col\":3}},{\"id\":\"heh_utilization\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hire Machine Utilization\",\"col\":3}},{\"id\":\"heh_insurance\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Insurance Report\",\"col\":3}},{\"id\":\"heh_bmg_procurement\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"BMG Procurement Report\",\"col\":3}},{\"id\":\"heh_sales_per_equipment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Per Equipment Report\",\"col\":3}},{\"id\":\"heh_revenue_per_customer\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Revenue per Customer\",\"col\":3}},{\"id\":\"heh_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"heh_sections\",\"type\":\"header\",\"data\":{\"text\":\"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eWorkflow\\u003c/b\\u003e\\u003c/span\\u003e\",\"col\":12}},{\"id\":\"heh_masters_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"heh_presales_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Pre-Sales\",\"col\":4}},{\"id\":\"heh_operations_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Operations\",\"col\":4}},{\"id\":\"heh_maintenance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"heh_billing_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Billing\",\"col\":4}},{\"id\":\"heh_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"heh_setup_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}},{\"id\":\"heh_kpi_card\",\"type\":\"card\",\"data\":{\"card_name\":\"KPI Management\",\"col\":4}},{\"id\":\"heh_kpi_template\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"KPI Template\",\"col\":3}},{\"id\":\"heh_kpi_cycle\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"KPI Review Cycle\",\"col\":3}},{\"id\":\"heh_employee_kpi_review\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee KPI Review\",\"col\":3}}]",
     "creation":  "2026-06-17 00:00:00",
     "custom_blocks":  [
 
@@ -397,6 +397,48 @@
                       "link_type":  "DocType",
                       "onboard":  0,
                       "type":  "Link"
+                  },
+                  {
+                      "hidden":  0,
+                      "is_query_report":  0,
+                      "label":  "KPI Management",
+                      "link_count":  0,
+                      "link_type":  "DocType",
+                      "onboard":  0,
+                      "type":  "Card Break"
+                  },
+                  {
+                      "dependencies":  "",
+                      "hidden":  0,
+                      "is_query_report":  0,
+                      "label":  "KPI Template",
+                      "link_count":  0,
+                      "link_to":  "KPI Template",
+                      "link_type":  "DocType",
+                      "onboard":  1,
+                      "type":  "Link"
+                  },
+                  {
+                      "dependencies":  "",
+                      "hidden":  0,
+                      "is_query_report":  0,
+                      "label":  "KPI Review Cycle",
+                      "link_count":  0,
+                      "link_to":  "KPI Review Cycle",
+                      "link_type":  "DocType",
+                      "onboard":  1,
+                      "type":  "Link"
+                  },
+                  {
+                      "dependencies":  "",
+                      "hidden":  0,
+                      "is_query_report":  0,
+                      "label":  "Employee KPI Review",
+                      "link_count":  0,
+                      "link_to":  "Employee KPI Review",
+                      "link_type":  "DocType",
+                      "onboard":  1,
+                      "type":  "Link"
                   }
               ],
     "modified":  "2026-06-18 12:36:56.125427",
@@ -587,6 +629,33 @@
                           "format":  "{}",
                           "label":  "Equipment Operation Log",
                           "link_to":  "Equipment Operation Log",
+                          "stats_filter":  "[]",
+                          "type":  "DocType"
+                      },
+                      {
+                          "color":  "Blue",
+                          "doc_view":  "List",
+                          "format":  "{}",
+                          "label":  "KPI Template",
+                          "link_to":  "KPI Template",
+                          "stats_filter":  "[]",
+                          "type":  "DocType"
+                      },
+                      {
+                          "color":  "Blue",
+                          "doc_view":  "List",
+                          "format":  "{}",
+                          "label":  "KPI Review Cycle",
+                          "link_to":  "KPI Review Cycle",
+                          "stats_filter":  "[]",
+                          "type":  "DocType"
+                      },
+                      {
+                          "color":  "Blue",
+                          "doc_view":  "List",
+                          "format":  "{}",
+                          "label":  "Employee KPI Review",
+                          "link_to":  "Employee KPI Review",
                           "stats_filter":  "[]",
                           "type":  "DocType"
                       }

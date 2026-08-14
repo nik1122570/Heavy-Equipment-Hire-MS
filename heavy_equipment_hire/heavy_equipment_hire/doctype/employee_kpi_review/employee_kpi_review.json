@@ -1,0 +1,286 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:KPI-REV-{YYYY}-{#####}",
+ "creation": "2026-08-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "review_details_section",
+  "employee_user",
+  "employee_name",
+  "job_title",
+  "department",
+  "column_break_1",
+  "line_manager",
+  "review_cycle",
+  "kpi_template",
+  "workflow_status",
+  "kpi_items_section",
+  "items",
+  "score_section",
+  "total_weight",
+  "employee_total_score",
+  "manager_total_score",
+  "final_score",
+  "final_rating",
+  "narrative_section",
+  "key_achievements",
+  "challenges_constraints",
+  "development_actions",
+  "objectives_next_period",
+  "manager_comments",
+  "employee_final_comments",
+  "sign_off_section",
+  "employee_acknowledged",
+  "manager_confirmed",
+  "hr_reviewed",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "review_details_section",
+   "fieldtype": "Section Break",
+   "label": "Review Details"
+  },
+  {
+   "fieldname": "employee_user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "line_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Line Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "review_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Review Cycle",
+   "options": "KPI Review Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_template",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "KPI Template",
+   "options": "KPI Template",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "workflow_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Review Status",
+   "options": "Draft\nSelf Review\nManager Review\nEmployee Acknowledgement\nHR Closed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_items_section",
+   "fieldtype": "Section Break",
+   "label": "KPI Scoring"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "KPI Review Items",
+   "options": "Employee KPI Review Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "score_section",
+   "fieldtype": "Section Break",
+   "label": "Score Summary"
+  },
+  {
+   "fieldname": "total_weight",
+   "fieldtype": "Float",
+   "label": "Total Weight",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_total_score",
+   "fieldtype": "Float",
+   "label": "Employee Total Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_total_score",
+   "fieldtype": "Float",
+   "label": "Manager Total Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Final Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_rating",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Final Rating",
+   "options": "\nOutstanding\nExceeds Expectations\nMeets Expectations\nNeeds Improvement\nUnsatisfactory",
+   "read_only": 1
+  },
+  {
+   "fieldname": "narrative_section",
+   "fieldtype": "Section Break",
+   "label": "Comments and Development"
+  },
+  {
+   "fieldname": "key_achievements",
+   "fieldtype": "Text Editor",
+   "label": "Key Achievements"
+  },
+  {
+   "fieldname": "challenges_constraints",
+   "fieldtype": "Text Editor",
+   "label": "Challenges and Constraints"
+  },
+  {
+   "fieldname": "development_actions",
+   "fieldtype": "Text Editor",
+   "label": "Development Actions"
+  },
+  {
+   "fieldname": "objectives_next_period",
+   "fieldtype": "Text Editor",
+   "label": "Objectives for Next Period"
+  },
+  {
+   "fieldname": "manager_comments",
+   "fieldtype": "Text Editor",
+   "label": "Manager Comments"
+  },
+  {
+   "fieldname": "employee_final_comments",
+   "fieldtype": "Text Editor",
+   "label": "Employee Final Comments"
+  },
+  {
+   "fieldname": "sign_off_section",
+   "fieldtype": "Section Break",
+   "label": "Confirmation"
+  },
+  {
+   "default": "0",
+   "fieldname": "employee_acknowledged",
+   "fieldtype": "Check",
+   "label": "Employee Acknowledged"
+  },
+  {
+   "default": "0",
+   "fieldname": "manager_confirmed",
+   "fieldtype": "Check",
+   "label": "Manager Confirmed"
+  },
+  {
+   "default": "0",
+   "fieldname": "hr_reviewed",
+   "fieldtype": "Check",
+   "label": "HR Reviewed"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee KPI Review",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-08-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Employee KPI Review",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "employee_name,employee_user,line_manager,review_cycle,workflow_status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name"
+}

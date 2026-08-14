@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-08-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_area",
+  "metric",
+  "target",
+  "weight",
+  "employee_score",
+  "employee_weighted_score",
+  "employee_comment",
+  "manager_score",
+  "manager_weighted_score",
+  "final_weighted_score",
+  "manager_comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_area",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KPI Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Metric",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target",
+   "fieldtype": "Small Text",
+   "label": "Target",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight %",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Employee Score %",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "employee_weighted_score",
+   "fieldtype": "Float",
+   "label": "Employee Weighted Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_comment",
+   "fieldtype": "Small Text",
+   "label": "Employee Comment"
+  },
+  {
+   "fieldname": "manager_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Manager Score %",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "manager_weighted_score",
+   "fieldtype": "Float",
+   "label": "Manager Weighted Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_weighted_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Final Weighted Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_comment",
+   "fieldtype": "Small Text",
+   "label": "Manager Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Employee KPI Review Item",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
