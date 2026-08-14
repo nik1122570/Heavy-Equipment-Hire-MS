@@ -8,7 +8,7 @@ from frappe.utils import flt, getdate, strip_html
 def execute(filters=None):
 	filters = frappe._dict(filters or {})
 	validate_filters(filters)
-	rows = get_invoice_rows(filters)
+	rows = get_revenue_rows(filters)
 	data = build_grouped_rows(rows)
 	return get_columns(), data, None, get_chart(rows, filters), get_report_summary(rows)
 
@@ -26,9 +26,32 @@ def get_columns():
 		{"label": _("Date"), "fieldname": "date", "fieldtype": "Date", "width": 115},
 		{"label": _("Machine / Cost Center"), "fieldname": "machine", "fieldtype": "Link", "options": "Cost Center", "width": 245},
 		{"label": _("Item"), "fieldname": "item", "fieldtype": "Data", "width": 260},
+		{"label": _("Source"), "fieldname": "source", "fieldtype": "Data", "width": 110},
 		{"label": _("Amount"), "fieldname": "amount", "fieldtype": "Currency", "width": 145},
-		{"label": _("Sales Invoice"), "fieldname": "sales_invoice", "fieldtype": "Link", "options": "Sales Invoice", "width": 160},
+		{"label": _("Reference Type"), "fieldname": "reference_doctype", "fieldtype": "Data", "hidden": 1},
+		{
+			"label": _("Reference"),
+			"fieldname": "reference_name",
+			"fieldtype": "Dynamic Link",
+			"options": "reference_doctype",
+			"width": 170,
+		},
 	]
+
+
+def get_revenue_rows(filters):
+	rows = get_invoice_rows(filters) + get_journal_entry_rows(filters)
+	return sorted(
+		rows,
+		key=lambda row: (
+			row.customer_name or row.customer or "",
+			row.customer or "",
+			getdate(row.posting_date),
+			row.cost_center or "",
+			row.reference_name or "",
+			row.idx or 0,
+		),
+	)
 
 
 def get_invoice_rows(filters):
@@ -52,18 +75,83 @@ def get_invoice_rows(filters):
 		f"""
 		select
 			si.posting_date,
-			si.name as sales_invoice,
+			'Sales Invoice' as source,
+			'Sales Invoice' as reference_doctype,
+			si.name as reference_name,
 			si.customer,
 			coalesce(si.customer_name, si.customer) as customer_name,
 			sii.item_code,
 			sii.item_name,
 			sii.description,
 			sii.cost_center,
-			sii.base_net_amount as amount
+			sii.base_net_amount as amount,
+			sii.idx
 		from `tabSales Invoice` si
 		inner join `tabSales Invoice Item` sii on sii.parent = si.name
 		where {" and ".join(conditions)}
 		order by si.customer_name asc, si.customer asc, si.posting_date asc, sii.cost_center asc, si.name asc, sii.idx asc
+		""",
+		params,
+		as_dict=True,
+	)
+
+
+def get_journal_entry_rows(filters):
+	customer_expr = """
+		coalesce(
+			nullif(if(jea.party_type = 'Customer', jea.party, ''), ''),
+			if(customer_party.customer_count = 1, customer_party.customer, null)
+		)
+	"""
+	conditions = [
+		"je.docstatus = 1",
+		"je.posting_date between %(from_date)s and %(to_date)s",
+		f"{customer_expr} is not null",
+		"account.root_type = 'Income'",
+		"(jea.credit - jea.debit) != 0",
+	]
+	params = {
+		"from_date": filters.from_date,
+		"to_date": filters.to_date,
+	}
+
+	if filters.get("customer"):
+		conditions.append(f"{customer_expr} = %(customer)s")
+		params["customer"] = filters.customer
+	if filters.get("cost_center"):
+		conditions.append("jea.cost_center = %(cost_center)s")
+		params["cost_center"] = filters.cost_center
+
+	return frappe.db.sql(
+		f"""
+		select
+			je.posting_date,
+			'Journal Entry' as source,
+			'Journal Entry' as reference_doctype,
+			je.name as reference_name,
+			{customer_expr} as customer,
+			coalesce(customer.customer_name, {customer_expr}) as customer_name,
+			jea.account as item_code,
+			jea.account as item_name,
+			coalesce(nullif(jea.user_remark, ''), nullif(je.remark, ''), jea.account) as description,
+			jea.cost_center,
+			(jea.credit - jea.debit) as amount,
+			jea.idx
+		from `tabJournal Entry` je
+		inner join `tabJournal Entry Account` jea on jea.parent = je.name
+		inner join `tabAccount` account on account.name = jea.account
+		left join (
+			select
+				parent,
+				min(party) as customer,
+				count(distinct party) as customer_count
+			from `tabJournal Entry Account`
+			where party_type = 'Customer' and ifnull(party, '') != ''
+			group by parent
+		) customer_party on customer_party.parent = je.name
+		left join `tabCustomer` customer on customer.name = {customer_expr}
+		where {" and ".join(conditions)}
+		order by customer.customer_name asc, jea.party asc, je.posting_date asc, jea.cost_center asc, je.name asc, jea.idx asc
 		""",
 		params,
 		as_dict=True,
@@ -99,8 +187,10 @@ def build_grouped_rows(rows):
 						"date": row.posting_date,
 						"machine": row.cost_center,
 						"item": clean_description(row.description) or row.item_name or row.item_code,
+						"source": row.source,
 						"amount": flt(row.amount),
-						"sales_invoice": row.sales_invoice,
+						"reference_doctype": row.reference_doctype,
+						"reference_name": row.reference_name,
 						"indent": 1,
 					}
 				)
@@ -121,16 +211,16 @@ def get_report_summary(rows):
 	total_amount = sum(flt(row.amount) for row in rows)
 	customers = len({row.customer for row in rows if row.customer})
 	machines = len({row.cost_center for row in rows if row.cost_center})
-	invoices = len({row.sales_invoice for row in rows if row.sales_invoice})
+	references = len({(row.reference_doctype, row.reference_name) for row in rows if row.reference_name})
 	most_served = get_most_served_customer(rows)
 	top_revenue = get_top_revenue_customer(rows)
 
 	return [
 		{"value": total_amount, "label": _("Total Revenue"), "datatype": "Currency", "indicator": "Blue"},
-		{"value": len(rows), "label": _("Sales Lines"), "datatype": "Int", "indicator": "Green"},
+		{"value": len(rows), "label": _("Revenue Lines"), "datatype": "Int", "indicator": "Green"},
 		{"value": customers, "label": _("Customers"), "datatype": "Int", "indicator": "Purple"},
 		{"value": machines, "label": _("Machines"), "datatype": "Int", "indicator": "Orange"},
-		{"value": invoices, "label": _("Invoices"), "datatype": "Int", "indicator": "Grey"},
+		{"value": references, "label": _("References"), "datatype": "Int", "indicator": "Grey"},
 		{"value": most_served, "label": _("Most Served Customer"), "datatype": "Data", "indicator": "Green"},
 		{"value": top_revenue, "label": _("Top Revenue Customer"), "datatype": "Data", "indicator": "Blue"},
 	]
@@ -140,15 +230,15 @@ def get_most_served_customer(rows):
 	if not rows:
 		return ""
 
-	invoices_by_customer = {}
+	references_by_customer = {}
 	for row in rows:
 		customer = row.customer_name or row.customer or _("No Customer")
-		invoices_by_customer.setdefault(customer, set())
-		if row.sales_invoice:
-			invoices_by_customer[customer].add(row.sales_invoice)
+		references_by_customer.setdefault(customer, set())
+		if row.reference_name:
+			references_by_customer[customer].add((row.reference_doctype, row.reference_name))
 
-	customer, invoices = max(invoices_by_customer.items(), key=lambda item: len(item[1]))
-	return _("{0} ({1})").format(customer, len(invoices))
+	customer, references = max(references_by_customer.items(), key=lambda item: len(item[1]))
+	return _("{0} ({1})").format(customer, len(references))
 
 
 def get_top_revenue_customer(rows):
@@ -205,21 +295,21 @@ def get_revenue_line_chart(rows):
 
 
 def get_customer_pie_chart(rows):
-	invoices_by_customer = {}
+	references_by_customer = {}
 	for row in rows:
 		customer = row.customer_name or row.customer or _("No Customer")
-		invoices_by_customer.setdefault(customer, set())
-		if row.sales_invoice:
-			invoices_by_customer[customer].add(row.sales_invoice)
+		references_by_customer.setdefault(customer, set())
+		if row.reference_name:
+			references_by_customer[customer].add((row.reference_doctype, row.reference_name))
 
-	top_customers = sorted(invoices_by_customer.items(), key=lambda item: len(item[1]), reverse=True)[:10]
+	top_customers = sorted(references_by_customer.items(), key=lambda item: len(item[1]), reverse=True)[:10]
 	return {
 		"data": {
-			"labels": [customer for customer, _invoices in top_customers],
+			"labels": [customer for customer, _references in top_customers],
 			"datasets": [
 				{
-					"name": _("Invoices Served"),
-					"values": [len(invoices) for _customer, invoices in top_customers],
+					"name": _("References Served"),
+					"values": [len(references) for _customer, references in top_customers],
 				}
 			],
 		},
