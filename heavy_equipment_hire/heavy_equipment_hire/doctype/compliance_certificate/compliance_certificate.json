@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:COMP-{YYYY}-{#####}",
+ "creation": "2026-08-20 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "machine_section",
+  "equipment_machine",
+  "registration_no",
+  "cost_center",
+  "column_break_1",
+  "company",
+  "compliance_type",
+  "is_critical",
+  "certificate_section",
+  "certificate_no",
+  "issuing_authority",
+  "issue_date",
+  "expiry_date",
+  "column_break_2",
+  "status",
+  "status_summary",
+  "days_remaining",
+  "attachment",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "machine_section",
+   "fieldtype": "Section Break",
+   "label": "Machine Details"
+  },
+  {
+   "fieldname": "equipment_machine",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment Machine",
+   "options": "Equipment Machine",
+   "reqd": 1
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Registration No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Compliance Type",
+   "options": "\nLATRA License\nOSHA Certificate\nUsalama Barabarani Sticker\nTools Compliance\nWeight Inspection\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_critical",
+   "fieldtype": "Check",
+   "label": "Critical for Booking"
+  },
+  {
+   "fieldname": "certificate_section",
+   "fieldtype": "Section Break",
+   "label": "Certificate Details"
+  },
+  {
+   "fieldname": "certificate_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Certificate / Sticker No"
+  },
+  {
+   "fieldname": "issuing_authority",
+   "fieldtype": "Data",
+   "label": "Issuing Authority"
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nMissing\nActive\nExpiring Soon\nExpired",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_summary",
+   "fieldtype": "Data",
+   "label": "Status Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_remaining",
+   "fieldtype": "Int",
+   "label": "Days Remaining",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-20 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Heavy Equipment Hire",
+ "name": "Compliance Certificate",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "equipment_machine,registration_no,compliance_type,certificate_no,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "equipment_machine"
+}

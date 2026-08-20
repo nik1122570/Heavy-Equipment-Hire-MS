@@ -8,6 +8,7 @@ def get_data():
 			"Quotation": "custom_equipment_machine",
 			"Sales Order": "custom_equipment_machine",
 			"Insurance Policy": "machine",
+			"Compliance Certificate": "equipment_machine",
 			"Equipment Maintenance Job Card": "equipment_machine",
 			"Purchase Order": "custom_equipment_machine",
 			"Fleet Tracker": "equipment_machine",
@@ -17,6 +18,6 @@ def get_data():
 			{"label": _("Hire"), "items": ["Hire Quotation Simulation", "Quotation", "Sales Order"]},
 			{"label": _("Operations"), "items": ["Fleet Tracker", "Equipment Operation Log"]},
 			{"label": _("Maintenance"), "items": ["Equipment Maintenance Job Card", "Purchase Order"]},
-			{"label": _("Compliance"), "items": ["Insurance Policy"]},
+			{"label": _("Compliance"), "items": ["Insurance Policy", "Compliance Certificate"]},
 		],
 	}

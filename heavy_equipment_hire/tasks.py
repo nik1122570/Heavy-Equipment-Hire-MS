@@ -1,5 +1,6 @@
 import frappe
 
+from heavy_equipment_hire.compliance import get_compliance_status_details
 from heavy_equipment_hire.equipment_status import update_all_machine_hire_statuses
 from heavy_equipment_hire.heavy_equipment_hire.doctype.equipment_machine.equipment_machine import get_insurance_status_details
 
@@ -45,3 +46,39 @@ def get_insurance_status(expiry_date):
 
 def update_machine_statuses():
 	update_all_machine_hire_statuses()
+
+
+def update_compliance_statuses():
+	for certificate in frappe.get_all(
+		"Compliance Certificate",
+		filters={"docstatus": ["<", 2]},
+		fields=["name", "expiry_date"],
+	):
+		status, summary, days_remaining = get_compliance_status_details(certificate.expiry_date)
+		frappe.db.set_value(
+			"Compliance Certificate",
+			certificate.name,
+			{
+				"status": status,
+				"status_summary": summary,
+				"days_remaining": days_remaining,
+			},
+			update_modified=False,
+		)
+
+	for driver in frappe.get_all(
+		"Driver Compliance",
+		filters={"docstatus": ["<", 2]},
+		fields=["name", "expiry_date"],
+	):
+		status, summary, days_remaining = get_compliance_status_details(driver.expiry_date)
+		frappe.db.set_value(
+			"Driver Compliance",
+			driver.name,
+			{
+				"status": status,
+				"status_summary": summary,
+				"days_remaining": days_remaining,
+			},
+			update_modified=False,
+		)

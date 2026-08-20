@@ -156,6 +156,7 @@ scheduler_events = {
 	"daily": [
 		"heavy_equipment_hire.tasks.update_insurance_statuses",
 		"heavy_equipment_hire.tasks.update_machine_statuses",
+		"heavy_equipment_hire.tasks.update_compliance_statuses",
 	],
 }
 

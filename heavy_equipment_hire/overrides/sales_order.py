@@ -2,6 +2,7 @@ import frappe
 from frappe import _
 from frappe.utils import add_days, get_link_to_form, getdate, today
 
+from heavy_equipment_hire.compliance import validate_machine_compliance_for_sales_order
 from heavy_equipment_hire.equipment_status import update_machine_hire_status
 from heavy_equipment_hire.heavy_equipment_hire.doctype.equipment_machine.equipment_machine import get_insurance_status_details
 
@@ -36,6 +37,7 @@ def before_submit_sales_order(doc, method=None):
 	validate_hire_dates(doc)
 	validate_machine_insurance(doc)
 	validate_machine_maintenance(doc)
+	validate_machine_compliance_for_sales_order(doc)
 	validate_machine_availability(doc)
 
 
